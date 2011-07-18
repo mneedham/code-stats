@@ -1,0 +1,5 @@
+function lines_of_scala_code {
+  find . |  ack -v .git | xargs file | ack -v directory | cut -d":" -f1 | ack ".scala$" | ack $1 | xargs cat | wc -l
+}
+
+# lines_of_scala_code "src/main"
